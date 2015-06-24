@@ -1,15 +1,17 @@
+'use strict';
+
 var http = require('http'),
   fs = require('fs'),
   path = require('path'),
   url = require('url');
 
 var mimeTypes = {
-  "html": "text/html",
-  "jpeg": "image/jpeg",
-  "jpg": "image/jpeg",
-  "png": "image/png",
-  "js": "text/javascript",
-  "css": "text/css"
+  'html': 'text/html',
+  'jpeg': 'image/jpeg',
+  'jpg': 'image/jpeg',
+  'png': 'image/png',
+  'js': 'text/javascript',
+  'css': 'text/css',
 };
 
 http.createServer(function (req, res) {
