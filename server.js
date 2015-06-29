@@ -12,13 +12,16 @@ var mimeTypes = {
   'png': 'image/png',
   'js': 'text/javascript',
   'css': 'text/css',
+  'jsx': 'text/jsx'
 };
 
 http.createServer(function (req, res) {
     var uri = url.parse(req.url).pathname;
     var filename = path.join(process.cwd(), uri);
 
+
     fs.exists(filename, function(exists) {
+      console.log(filename);
       if (!exists) {
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.write('404 Not Found\n');
