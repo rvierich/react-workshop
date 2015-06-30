@@ -20,8 +20,12 @@ http.createServer(function (req, res) {
     var filename = path.join(process.cwd(), uri);
 
 
+
     fs.exists(filename, function(exists) {
-      console.log(filename);
+      if(exists && fs.lstatSync(filename).isDirectory()) {
+        exists = false;
+      }
+
       if (!exists) {
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.write('404 Not Found\n');
